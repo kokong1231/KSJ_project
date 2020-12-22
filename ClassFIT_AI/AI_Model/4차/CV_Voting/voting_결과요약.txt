@@ -1,0 +1,35 @@
+=======================================================================================
+[1]
+추출한 특징 : short_url, favicon, href_count, url_length, page_redirect, url_split_count
+(총 6개)
+[1] label_train : 2999개
+[1] label_test : 7001개
+정확도 : 85.17
+
+=======================================================================================
+[2]
+추출한 특징 : sub_domain, ip, state_code, ssl, meta_data (총 5개)
+[2] label_train : 3000개
+[2] label_test : 7000개
+정확도 : 84.82
+=======================================================================================
+[3]
+추출한 특징 : short_url, favicon, url_length, ssl, meta_data, dash_count, domain_name
+(총 7개)
+[3]label_train : 3000개
+[3]label_test : 7000개
+정확도 : 84.82
+=======================================================================================
+[4] = [개별]CV_Voting.jpynb, [총]CV_Voting.jpynb
+추출한 특징 : short_url, favicon, href_count, url_length, page_redirect, url_split_count
+(총 6개)
+[1]label_train : 2999개
+[1]label_test : 7001개
+정확도(result_1) : 85.72
+=======================================================================================
+[try]
+추출한 특징 : short_url, favicon, ip, href_count, url_length, ssl, url_rank, activeDuration, domain_name_count, domain_name_len (총 10개)
+[try]label_data
+정확도 : 94.9
+
+

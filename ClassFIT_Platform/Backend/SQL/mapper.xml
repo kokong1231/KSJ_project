@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+  <select id="checkID">
+    SELECT *
+    FROM USER_TB
+    WHERE user_id = #{id}
+  </select>
+  <insert id="saveData">
+    INSERT INTO USER_TB
+    VALUES (#{id}, #{nickname}, NOW(), 'user', 'bronze', 1000, #{name}, #{gender}, #{birthday}, #{email})
+  </insert>
+</mapper>
+<mapper namespace="mypage">
+  <select id="getAccountInfo">
+    SELECT user_name, user_email, user_nickname, user_gender, user_birthday, user_point
+    FROM USER_TB
+    WHERE user_id=#{id}
+  </select>
+  <select id="getPurchaseInfo">
+    SELECT PURCHASE_TB.purchase_createtime,DATA_TB.data_title,PURCHASE_TB.purchase_expiredtime
+    FROM PURCHASE_TB
+    JOIN DATA_TB 
+    ON PURCHASE_TB.purchase_id=DATA_TB.data_id
+    WHERE PURCHASE_TB.purchase_id=#{id}
+  </select>
+</mapper>
+<mapper namespace="qna">
+  <select id="getQ">
+    SELECT ask_number, ask_id, ask_title, ask_createtime, ask_lock
+    FROM ASK_TB
+  </select>
+  <select id="getA">
+    SELECT answer_number, answer_asknumber, answer_title, answer_createtime
+    FROM ANSWER_TB
+  </select>
+  <select id="readQ">
+    SELECT ask_id, ask_title, ask_content, ask_createtime, ask_lock
+    FROM ASK_TB
+    WHERE ask_number=#{number}
+  </select>
+  <insert id="writeQ">
+    INSERT INTO ASK_TB(ask_number, ask_id, ask_title, ask_content, ask_createtime, ask_lock)
+    VALUES (#{number}, #{id}, #{title}, #{content}, #{createtime}, #{lock})
+  </insert>
+  <select id="orderQ">
+    SELECT ask_number
+    FROM ASK_TB
+    ORDER BY ask_number DESC LIMIT 1
+  </select>
+  <select id="readA">
+    SELECT answer.answer_title, answer.answer_content, answer.answer_createtime, ask.ask_lock
+    FROM ANSWER_TB answer
+    JOIN ASK_TB ask
+    ON answer.answer_asknumber=ask.ask_number
+    WHERE answer_asknumber=#{number}
+  </select>
+</mapper>

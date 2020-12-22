@@ -1,0 +1,10 @@
+FROM ubuntu
+
+RUN apt-get -y update
+RUN apt-get install -y python3 python3-pip
+RUN pip3 install --upgrade pip
+COPY . /app
+WORKDIR /app
+RUN ls -al
+RUN python3 install_package.py PreProcess_package.txt
+CMD python3 verify.py

@@ -1,0 +1,75 @@
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import KFold
+from sklearn.metrics import accuracy_score
+import warnings
+import numpy as np
+import pandas as pd
+
+warnings.filterwarnings(action='ignore')
+
+#dataset
+train_dataset = pd.read_csv('ld1.csv')
+X_data = np.array(train_dataset.iloc[:, 1:-1].values)
+y_label = np.array(train_dataset.iloc[:, -1].values)
+
+test_dataset = pd.read_csv('ld2.csv')
+test_dataset['label']=np.nan
+X_test = np.array(test_dataset.iloc[:, 1:-1].values)
+y_test = np.array(test_dataset.iloc[:, -1].values)
+
+#LogisticRegression()
+#model_logistic = LogisticRegression()
+#model_logistic.fit(X_train, y_train)
+
+#RandomForest
+model_forest = RandomForestClassifier(n_estimators=10)
+model_forest.fit(X_train, y_train)
+
+#KNN
+model_knn = KNeighborsClassifier()
+model_knn.fit(X_train, y_train)
+
+#DecisionTree
+model_dt = DecisionTreeClassifier(random_state=0)
+model_dt.fit(X_train, y_train)
+
+lr_final = LogisticRegression(C=10)
+
+def get_stacking_datasets(model, x_train_n, y_train_n, x_test_n, n_folds) :
+    kf = KFold(n_splits=n_folds, shuffle=False, random_state=42)
+    
+    train_fold_pred = np.zeros((x_train_n.shape[0], 1))
+    test_pred = np.zeros((x_test_n.shape[0], n_folds))
+    print(model.__class__.__name__, '모델 시작')
+    
+    for folder_counter, (train_idx, valid_idx) in enumerate(kf.split(x_train_n)) :
+        print(f"Fold 횟수 : {folder_counter + 1}")
+        x_tr = x_train_n[train_idx]
+        y_tr = y_train_n[train_idx]
+        x_te = x_train_n[valid_idx]
+        
+        model.fit(x_tr, y_tr)
+        train_fold_pred[valid_idx, :] = model.predict(x_te).reshape(-1, 1)
+        test_pred[:, folder_counter] = model.predict(x_test_n)
+    
+    test_pred_mean = np.mean(test_pred, axis=1).reshape(-1, 1)
+    
+    return train_fold_pred, test_pred_mean
+
+train_knn, test_knn = get_stacking_datasets(model_knn, X_train, y_train, X_test, 5)
+train_dt, test_dt = get_stacking_datasets(model_dt, X_train, y_train, X_test, 5)
+train_forest, test_forest = get_stacking_datasets(model_forest, X_train, y_train, X_test, 5)
+
+stack_final_x_train = np.concatenate((train_knn, train_dt, train_forest), axis=1)
+stack_final_x_test = np.concatenate((test_knn, test_dt, test_forest), axis=1)
+lr_final.fit(stack_final_x_train, y_train)
+stack_final_pred = lr_final.predict(stack_final_x_test)
+print(stack_final_pred)
+#stack_final_pred = lr_final.predict(stack_final_x_test)
+#print(f"최종 메타모델 정확도 : {accuracy_score(y_test, stack_final_pred):.4f}")
+
+#https://techblog-history-younghunjo1.tistory.com/103

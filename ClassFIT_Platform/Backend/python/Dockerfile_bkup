@@ -1,0 +1,10 @@
+FROM python:3.8
+
+RUN apt-get update
+
+COPY . /app
+RUN pip install -r /app/requirements.txt
+RUN chmod 755 /app/test.py
+WORKDIR /app
+
+CMD "python /app/test.py

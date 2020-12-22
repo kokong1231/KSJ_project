@@ -1,0 +1,2976 @@
+/*
+ *  공통으로 적용되거나 특정 값만 필요할 경우
+ */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: 0;
+    outline: 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+table {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    box-shadow: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+input:focus {
+    outline: none;
+}
+
+.ta-ct {
+    text-align: center;
+}
+
+.fl-l {
+    float: left;
+}
+
+.fl-r {
+    float: right;
+}
+
+.bgColorGold {
+    background-color: #FDD301;
+}
+
+.bgColorWhite {
+    background-color: white;
+}
+
+.bgColorLightBlack {
+    background-color: #2F2D32;
+}
+
+.bgColorLightYellow {
+    background-color: #F0F4C3;
+}
+
+.textColorGold {
+    color: #FDD301;
+}
+
+.textColorWhite {
+    color: white;
+}
+
+.textColorBlack {
+    color: black;
+}
+
+.title {
+    position: relative;
+    z-index: 1;
+    height: 15vh;
+    text-align: center;
+    font-size: 7vh;
+    font-weight: bold;
+    padding-top: 2vh;
+}
+
+.hidden {
+    display: none;
+}
+
+.td-none {
+    text-decoration: none;
+}
+
+.normalButton {
+    background: transparent;
+    font-size: 16px;
+}
+
+.buttonNone {
+    text-decoration: none;
+    color: white;
+}
+
+.disable-link {
+    pointer-events: none;
+}
+
+
+
+/*
+ *  메인 컴포넌트 (Main.js)
+ */
+.loadingBG {
+    background-color: #2F2D32;
+    width: 100%;
+    height: 100vh;
+    padding-top: 30vh;
+}
+
+.circle {
+    width: 14vw;
+    height: 14vw;
+    border: 3px solid rgb(95, 19, 235);
+    border-top: 3px solid yellow;
+    border-radius: 8vw;
+    margin-left: 50vw;
+    margin-top: 20vh;
+    animation-name: spinCircle;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+.lockImg {
+    position: absolute;
+    z-index: 1;
+    width: 10vw;
+    height: 10vw;
+    margin-left: 45vw;
+    margin-right: 45vw;
+    margin-top: 9vh;
+}
+
+.backFrame {
+    position: absolute;
+    z-index: 1;
+    background-color: #2F2D32;
+    width: 100%;
+    height: 110vh;
+}
+
+.rights {
+    color: white;
+    height: 10vh;
+    text-align: center;
+    font-size: 3vh;
+    line-height: 10vh;
+    margin-top: 100vh;
+}
+
+.closePreventZone {
+    position: absolute;
+    z-index: 2;
+    width: 2vw;
+    height: 20vh;
+    top: 5vh;
+    left: 93vw;
+}
+
+.menuIcon {
+    position: absolute;
+    z-index: 2;
+    width: 2vw;
+    height: 5vh;
+    margin-top: 5vh;
+    margin-left: 95vw;
+}
+
+.menuIcon:hover {
+    cursor: pointer;
+}
+
+.menuIcon div {
+    height: 5px;
+    background-color: white;
+    border-radius: 3px;
+    margin-top: 7px;
+}
+
+
+ /*
+  *  메뉴 컴포넌트 (Menu.js)
+  */
+.menu {
+    position: absolute;
+    z-index: 2;
+    top: 3vh;
+    left: 87vw;
+    width: 7vw;
+    background-color: black;
+    color: white;
+    border-radius: 2vw;
+    border: 2px solid #F0F4C3;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    animation-name: menuPopUp, fadeIn;
+    animation-duration: 0.5s;
+}
+
+.menu ul li {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.listStyle {
+    text-decoration: none;
+    color: white;
+}
+
+.listStyle:hover {
+    cursor: pointer;
+    color: #FDD301;
+}
+
+/*
+ *  홈 컴포넌트 (Home.js)
+ */
+.home {
+    position: relative;
+    z-index: 1;
+    height: 85vh;
+}
+
+.homeFrame {
+    width: 60vw;
+    height: 60vh;
+    margin-top: 10vh;
+    margin-left: 20vw;
+    background-color: white;
+}
+
+.homeFrameMenu {
+    height: 15%;
+    background-color: #f0f0f0;
+}
+
+.homeFrameMenu ul li {
+    float: left;
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    width: 25%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.homeFrameMenu ul li:hover {
+    cursor: pointer;
+    border-bottom: 4px solid #FDD301;
+    font-weight: bold;
+}
+
+.homeFrameMenuClick {
+    cursor: pointer;
+    border-bottom: 4px solid #FDD301;
+    font-weight: bold;
+}
+
+.homeFrameContent {
+    display: flex;
+    height: 85%;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+ *  검증 컴포넌트 (Auth.js)
+ */
+.authSelect {
+    appearance: none;
+    font-size: 1vw;
+    font-weight: bold;
+    text-align: center;
+    width: 9vw;
+    height: 7vh;
+    margin-right: 2vw;
+    text-align-last: center;
+}
+
+.phishing {
+    width: 30vw;
+    height: 7vh;
+    margin-right: 2vw;
+    padding-left: 10px;
+    font-size: 1.4vw;
+}
+
+.phishingButton {
+    width: 6vw;
+    height: 7vh;
+    font-size: 1.2vw;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.phishingButton:hover {
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+/*
+ *  로그인 컴포넌트 (LogIn.js)
+ */
+.logIn {
+    position: relative;
+    z-index: 1;
+}
+
+.naverLogInButton {
+    width: 32vw;
+    height: 15vh;
+    margin-top: 20vh;
+    margin-left: 34vw;
+}
+
+.logInButton {
+    width: 25vw;
+    height: 13vh;
+    font-size: 3vw;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 2vw;
+}
+
+.logInButton:hover {
+    cursor: pointer;
+    background-color: white;
+}
+
+.signUpText {
+    font-size: 1vw;
+    color: white;
+    text-align: center;
+    margin-top: 10vh;
+}
+
+/*
+ *  404 Error 컴포넌트(NotFound.js)
+ */
+.notFound {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 3vw;
+    font-weight: bold;
+    color: white;
+    margin-top: 30vh;
+}
+
+ /*
+  *  애니메이션
+  */
+  @keyframes spinCircle {
+      from {
+        transform: translate(-50%, -50%) rotate(0);
+      }
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+  }
+
+  @keyframes menuPopUp {
+      from {
+          left: 88vw;
+      }
+      to {
+          left: 87vw;
+      }
+  }
+
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+
+/*
+ * 문의하기 컴포넌트(QnA.js)
+ */
+.QnA {
+    position: relative;
+    z-index: 1;
+    margin-left: 10vw;
+    margin-right: 9vw;
+    margin-top: 2vh;
+}
+
+.QnATable {
+    border: 1px solid white;
+    padding: 10px;
+    width: 80vw;
+    margin-bottom: 2vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.QnAtableheight {
+    height: 35px;
+    font-size: 15px;
+    color: white;
+    border: 1px solid white;
+}
+
+.QnAtableheight:nth-child(odd) {
+    background-color: black;
+}
+
+.QnATableTd {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 10px;
+    text-align: center;
+}
+
+.QnAWriteButton {
+    position: relative;
+    z-index: 1;
+    height: 40px;
+    width: 130px;
+    background-color: #FDD301;
+    font-weight: bold;
+    font-size: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    float: right;
+}
+
+.QnAWriteTable {
+    width: 80vw;
+    font-size: 15px;
+    border: 1px solid white;
+    padding: 10px;
+    margin-bottom: 2vh;
+}
+
+.QnAWriteTableTd {
+    border-collapse: collapse;
+}
+
+.QnAWriteTitle0 {
+    color: white;
+    text-align: center;
+    font-style: 15px;
+    border: solid 1px white;
+}
+
+.QnAWriteTitle {
+    width: 100%;
+    background-color: black;
+    height: 30px;
+    color: white;
+}
+
+.QnAWriteContent {
+    width: 77vw;
+    height: 60vh;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 1vh 1vh 1vh 1vh;
+}
+
+.QnAWriteButtonText {
+    text-decoration: none;
+    color: white;
+}
+
+.QnACancelButton {
+    position: relative;
+    z-index: 1;
+    height: 40px;
+    width: 70px;
+    background-color: #FDD301;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    float: right;
+}
+
+.QnACancelButton:hover {
+    cursor: pointer;
+}
+
+.QnARegisterButton {
+    position: relative;
+    z-index: 1;
+    height: 40px;
+    width: 70px;
+    background-color: #FDD301;
+    font-weight: bold;
+    font-size: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    float: right;
+    margin-right: 2vw;
+}
+
+.QnARegisterButton:hover {
+    cursor: pointer;
+}
+
+.QnADisplayLink {
+    color: white;
+    text-decoration: none;
+}
+
+.QnADisplayTitle {
+    width: 100%;
+    color: white;
+    font-size: 15px;
+    border: solid 1px white;
+}
+
+.QnADisplayContent {
+    width: 100%;
+    height: 500px;
+    font-size: 15px;
+    border: solid 1px white;
+    color: white;
+}
+
+.QnABackButton {
+    position: relative;
+    z-index: 1;
+    height: 40px;
+    width: 100px;
+    background-color: #FDD301;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    float: right;
+}
+
+.QnACheckbox {
+    margin-top: 7px;
+    margin-right: 1vw;
+    float: left;
+}
+
+.QnACheckboxText {
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding-left: 5px;
+    float: left;
+    font-size: 20px;
+}
+
+/*
+* 내 정보 컴포넌트(MyPage.js)
+*/
+.myPageFrame {
+    position: relative;
+    z-index: 1;
+    width: 75vw;
+    height: 70vh;
+    border: 1px solid white;
+    margin: auto;
+}
+
+.myPageTab {
+    display: table;
+    width: 100%;
+    height: 15%;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.myPageAccountTab {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.myPageAccountTab:hover {
+    cursor: pointer;
+}
+
+.myPagePurchaseTab {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid white;
+}
+
+.myPagePurchaseTab:hover {
+    cursor: pointer;
+}
+
+.myPageContent {
+    width: 100%;
+    height: 85%;
+}
+
+.myPageGoHomeButton {
+    display: table;
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 16px;
+    padding: 15px 3vw 15px 3vw;
+    margin-top: 3vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+ * MyPage 하위 탭 (MyPageAccount.js, MyPagePurchase.js)
+ */
+.MyPageAccount {
+    display: table;
+    width: 100%;
+    height: 100%;
+    font-size: 26px;
+    color: white;
+}
+
+.MyPageAccount ul li {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.MyPageAccountLeft {
+    display: table-cell;
+    width: 46%;
+    height: 100%;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.MyPageAccountMiddle {
+    display: table-cell;
+    width: 8%;
+    height: 100%;
+}
+
+.MyPageAccountRight {
+    display: table-cell;
+    width: 46%;
+    height: 100%;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.MyPagePurchase {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.MyPagePurchaseTable {
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: left;
+    vertical-align: middle;
+    padding-top: 4vh;
+    padding-left: 3vw;
+}
+
+.MyPagePurchaseTable th {
+    font-size: 25px;
+}
+
+.MyPagePurchaseTable tbody td {
+    height: 80px;
+    font-size: 20px;
+}
+
+
+   .SelectDataFrame {
+        position: relative;
+        padding-top: 13%;
+   }
+
+   .SelectTitleOpt {
+       text-align: center;
+       margin: 0;
+   }
+
+   .SelectButtonTitle {
+        position: relative;
+        display: inline;
+        z-index: 1;
+        font-size: 23px;
+        color: white;
+   }
+
+   .SelectButtonTitleLeft {
+       right: 50px;
+   }
+
+   .SelectButtonTitleRight {
+       left: 50px;
+   }
+
+   .SelectDataButtonOpt {
+        position: relative;
+        text-align: center;
+        margin-top: 15%;
+   }
+
+   .SelectDataButton {
+        position: relative;
+        z-index: 1;
+        padding: 10% 8% 10% 8%;
+        width: 25%;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+        text-decoration:none
+   }
+
+   .SelectDataButtonRight {
+        left: 60px;
+   }
+
+   .SelectDataButtonLeft {
+       right: 70px;
+   }
+
+   .ActionButton {
+        border: 0 solid;
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+        outline: 1px solid;
+        outline-color: rgba(255, 255, 255, .5);
+        outline-offset: 0px;
+        text-shadow: none;
+        transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+   }
+
+   .ActionButton:hover {
+        border: 1px solid;
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+        outline-color: rgba(255, 255, 255, 0);
+        outline-offset: 15px;
+        text-shadow: 1px 1px 2px #427388;
+        cursor: pointer;
+   }
+
+   .AgreePageFrame {
+        position: relative;
+        padding-top: 2%;
+        overflow: auto;
+        height: 300px;
+   }
+
+   .AgreePageTitle {
+       position: relative;
+       z-index: 1;
+       text-align: center;
+       font-size: 30px;
+       color: white;
+       padding-top: 10%;
+       padding-bottom: 3%;
+   }
+
+   .AgreePageTitleDetail {
+       display: inline;
+       color: #FDD301;
+   }
+
+   .AgreePageContents {
+       position: relative;
+       z-index: 1;
+       color: white;
+       margin: 5% 10% 0 10%;
+   }
+
+   .AgreePageSubTitle {
+       font-size: 25px;
+       font-style: bold;
+   }
+
+   .AgreePageTestDetail {
+       font-size: 20px;
+       display: inline;
+   }
+
+   .AgreePageButtonFrame {
+       margin-top: 8%;
+   }
+
+   .AgreePageButtonLeft {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 14vw;
+        height: 6vh;
+        border: 1px solid white;
+        color: white;
+        font-size: 16px;
+        margin-left: 33vw;
+   }
+
+   .AgreePageButtonRight {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 14vw;
+        height: 6vh;
+        border: 1px solid white;
+        color: white;
+        font-size: 16px;
+        margin-right: 33vw;
+    }
+
+   .AgreePageButtonDetail {
+       position: relative;
+       z-index: 1;
+       color: white;
+       text-decoration:none
+   }
+
+   .AgreePageButtonDetailLeft {
+        padding: 1% 75px 1% 75px;
+        margin-right: 30px;
+   }
+
+   .AgreePageButtonDetailRight {
+        padding: 1% 55px 1% 55px;
+        margin-left: 30px;
+   }
+
+   .AddPageTitle {
+       color: white;
+   }
+
+   .AddPageTitleDetail {
+       color: #FDD301;
+       display: inline;
+   }
+
+   .AddPageContent {
+       position: relative;
+       z-index: 1;
+       color: white;
+       padding: 8% 10% 0 10%;
+   }
+
+   .AddDataButtonFrame {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   }
+
+   .AddDataButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 14vw;
+        height: 6vh;
+        border: 1px solid white;
+        color: white;
+        font-size: 16px;
+   }
+
+   .AddPageDropBox {
+       position: relative;
+       display: block;
+       z-index: 1;
+       text-align: center;
+       margin-top: 10%;
+   }
+
+   .AddPageDropBoxLeft {
+       margin-right: 70px;
+   }
+
+   .AddPageDropBoxRight {
+       margin-left: 70px;
+   }
+
+   .AddPageSelectBox {
+       width: 200px;
+       padding: .8em .5em;
+       border: 1px solid #999;
+       font-family: inherit;
+       border-radius: 0px;
+       background-color: #2F2D32;
+       color: white;
+       -webkit-appearance: none;
+       -moz-appearance: none;
+   }
+
+   .AddPageButton {
+       position: relative;
+       display: block;
+       z-index: 1;
+       text-align: center;
+       margin: 5% 0 0 0;
+   }
+
+   .AddPageButton a {
+       color: white;
+       padding: 1% 240px 1% 240px;
+       text-decoration:none
+   }
+
+   .AddPageButtonDown {
+       position: relative;
+       top: 50px;
+   }
+
+   .DropZoneView {
+        position: relative;
+        z-index: 1;
+        color: white;
+        font-size: 20px;
+        padding-top: 2vh;
+        height: 50vh;
+   }
+
+   .DropZoneLeft {
+        width: 40vw;
+        height: 100%;
+        border: 2px solid white;
+        border-radius: 5px;
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    .UsedFrame {
+        width: 100%;
+        height: 50%;
+        padding-top: 5vh;
+        padding-left: 2vw;
+    }
+
+    .UsedInput {
+        width: 80%;
+        height: 6vh;
+        border: 1px solid white;
+        background-color: #2F2D32;
+        font-size: 16px;
+        color: white;
+        padding-left: 8px;
+        margin-top: 15px;
+    }
+
+   .DropZone {
+        display: table;
+        background: #2F2D32;
+        border-radius: 5px;
+        border-image: none;
+        width: 45vw;
+        height: 100%;
+   }
+
+   .mg-vertical-auto {
+       margin-left: auto;
+       margin-right: auto;
+   }
+
+   .DropZoneDefaultText {
+       width: 100%;
+       height: 5vh;
+       text-align: center;
+       margin-top: 13.3vh;
+   }
+
+   .DropZoneUploadText {
+       display: table-cell;
+       text-align: center;
+       vertical-align: middle;
+       font-size: 40px;
+       font-weight: bold;
+   }
+
+    .borderOn {
+        border: 2px solid greenyellow;
+    }
+
+    .borderOff {
+        border: 2px dashed white;
+    }
+
+    .DropZoneSub {
+        position: relative;
+        z-index: 1;
+        width: 45vw;
+        height: 10vh;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5vh;
+        padding-top: 2vh;
+    }
+
+    .ml-45vw {
+        margin-left: 50vw;
+    }
+
+    .FileSizeText {
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .FileUploadButton {
+        display: table-cell;
+        background-color: #F0F4C3;
+        border: 2px solid white;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+        padding: 5px;
+    }
+
+    .FileUploadButton:hover {
+        cursor: pointer;
+        background-color: #f0f0f0;
+    }
+
+    .DropPageButtonDetail {
+        position: relative;
+        z-index: 1;
+        color: white;
+        text-decoration:none
+    }
+
+    .DropPageButtonDetailLeft {
+        padding: 1% 75px 1% 75px;
+        margin-right: 30px;
+    }
+
+    .DropPageButtonDetailRight {
+        padding: 1% 75px 1% 75px;
+        margin-left: 30px;
+    }
+
+
+    .DataBoardSelectBox {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        margin-top: 3%;
+    }
+
+    .DataBoardSelectBoxDetail {
+        width: 200px;
+        padding: .8em .5em;
+        border: 1px solid #999;
+        border-radius: 0px;
+        background-color: #2F2D32;
+        color: white;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    .DataBoardSelectBoxDetail:hover {
+        border: 1px solid;
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, .5), 0 0 10px rgba(255, 255, 255, .2);
+        outline-color: rgba(255, 255, 255, 0);
+        text-shadow: 1px 1px 2px #427388;
+    }
+
+    .DataBoardInputBox {
+        width: 400px;
+        padding: .8em .5em;
+        border: 1px solid #999;
+        border-radius: 0px;
+        background-color: #2F2D32;
+        color: white;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin: 0 0 0 50px;
+    }
+
+    .DataBoardInputBox:hover {
+        border: 1px solid;
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+        outline-color: rgba(255, 255, 255, 0);
+        outline-offset: 15px;
+        text-shadow: 1px 1px 2px #427388;
+    }
+
+    .DataBoardSubmitButton {
+        margin: 0 0 0 30px;
+        width: 70px;
+        height: 38px;
+    }
+
+    .DataBoard {
+        position: relative;
+        z-index: 1;
+        margin-top: 5%;
+        text-align: center;
+    }
+
+    .DataBoardBottom {
+        margin-top: 2%;
+    }
+
+    .DataBoardButtonDetail {
+        display: inline-block;
+        width: 250px;
+        height: 150px;
+        color: white;
+        text-decoration:none;
+    }
+
+    .DataBoardButtonDetailLeft {
+        margin-right: 50px;
+    }
+
+    .DataBoardButtonDetailCenter {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .DataBoardButtonDetailRight {
+        margin-left: 50px;
+    }
+    */
+    .DataBoardPageNumber {
+        position: relative;
+        z-index: 1;
+        margin-top: 2%;
+        text-align: center;
+    }
+
+    .DataBoardPageNumberDetail a {
+        text-decoration: none;
+    }
+
+    .DataBoardPageNumberDetail a:hover {
+        text-decoration: none;
+    }
+
+    .Pagination{
+        padding: 30px 0;
+        position: relative;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .Pagination ul{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .Pagination a{
+        display: inline-block;
+        padding: 10px 18px;
+        color: white;
+    }
+
+    .P1 a{
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0;
+        text-align: center;
+    }
+
+    .P1 a.is-active{
+        background-color: #FDD301;
+        border-radius: 100%;
+        color: #2F2D32;
+    }
+
+    .DataBoardContentTitle {
+        text-align: left;
+        font-size: 25px;
+        font-style: bold;
+        padding: 3px;
+    }
+
+    .DataBoardContentDataValue {
+        font-size: 40px;
+        font-style: bold;
+        padding-top: 10px;
+    }
+
+    .DataBoardContentSub {
+        font-size: 15px;
+        display: inline-block;
+        padding-top: 30px;
+    }
+
+    .DataBoardContentSubLeft {
+        padding-right: 50px;
+    }
+
+    .DataBoardContentSubRight {
+        padding-left: 50px;
+    }
+
+    .DataSuccess {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: white;
+        padding-top: 25%;
+        font-size: 30px;
+    }
+
+    .DataSuccessDetail {
+        color: #FDD301;
+        display: inline;
+    }
+
+    /* Success Page Action */
+    .sp-container {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background: -webkit-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
+        background: -moz-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
+        background: -ms-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
+        background: radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
+    }
+    .sp-content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        z-index: 1000;
+    }
+    .sp-container h2 {
+        position: absolute;
+        top: 50%;
+        line-height: 100px;
+        height: 90px;
+        margin-top: -50px;
+        font-size: 90px;
+        width: 100%;
+        text-align: center;
+        color: transparent;
+        -webkit-animation: blurFadeInOut 1.5s ease-in backwards;
+        -moz-animation: blurFadeInOut 1.5s ease-in backwards;
+        -ms-animation: blurFadeInOut 1.5s ease-in backwards;
+        animation: blurFadeInOut 1.5s ease-in backwards;
+    }
+    .sp-container h2.frame-1 {
+        -webkit-animation-delay: 0s;
+        -moz-animation-delay: 0s;
+        -ms-animation-delay: 0s;
+        animation-delay: 0s;
+    }
+    .sp-container h2.frame-2 {
+        -webkit-animation-delay: 1.5s;
+        -moz-animation-delay: 1.5s;
+        -ms-animation-delay: 1.5s;
+        animation-delay: 1.5s;
+    }
+    .sp-container h2.frame-3 {
+        -webkit-animation-delay: 3s;
+        -moz-animation-delay: 3s;
+        -ms-animation-delay: 3s;
+        animation-delay: 3s;
+    }
+    .sp-container h2.frame-4 {
+        font-size: 200px;
+        -webkit-animation-delay: 4.5s;
+        -moz-animation-delay: 4.5s;
+        -ms-animation-delay: 4.5s;
+        animation-delay: 4.5s;
+    }
+    .sp-container h2.frame-5 {
+        -webkit-animation: none;
+        -moz-animation: none;
+        -ms-animation: none;
+        animation: none;
+        color: transparent;
+        text-shadow: 0px 0px 1px #fff;
+    }
+    .sp-container h2.frame-5 span {
+        -webkit-animation: blurFadeIn 3s ease-in 6s backwards;
+        -moz-animation: blurFadeIn 1s ease-in 6s backwards;
+        -ms-animation: blurFadeIn 3s ease-in 6s backwards;
+        animation: blurFadeIn 3s ease-in 6s backwards;
+        color: transparent;
+        text-shadow: 0px 0px 1px #fff;
+    }
+    .sp-container h2.frame-5 span:nth-child(2) {
+        -webkit-animation-delay: 6.5s;
+        -moz-animation-delay: 6.5s;
+        -ms-animation-delay: 6.5s;
+        animation-delay: 6.5s;
+    }
+    .sp-container h2.frame-5 span:nth-child(3) {
+        -webkit-animation-delay: 7s;
+        -moz-animation-delay: 7s;
+        -ms-animation-delay: 7s;
+        animation-delay: 7s;
+    }
+
+    .sp-circle-link {
+        position: absolute;
+        left: 50%;
+        bottom: 100px;
+        margin-left: -50px;
+        text-align: center;
+        line-height: 50px;
+        width: 100px;
+        height: 50px;
+        color: #fff;
+        font-size: 25px;
+        -webkit-animation: fadeInBtn 3s ease-in 7s backwards;
+        -moz-animation: fadeInBtn 1s ease-in 7s backwards;
+        -ms-animation: fadeInBtn 3s ease-in 7s backwards;
+        animation: fadeInBtn 3s ease-in 7s backwards;
+        text-decoration: none;
+    }
+    /**/
+
+    @-webkit-keyframes blurFadeInOut {
+        0% {
+            opacity: 0;
+            text-shadow: 0px 0px 40px #fff;
+            -webkit-transform: scale(1.3);
+        }
+        20%, 75% {
+            opacity: 1;
+            text-shadow: 0px 0px 1px #fff;
+            -webkit-transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            text-shadow: 0px 0px 50px #fff;
+            -webkit-transform: scale(0);
+        }
+    }
+    @-webkit-keyframes blurFadeIn {
+        0% {
+            opacity: 0;
+            text-shadow: 0px 0px 40px #fff;
+            -webkit-transform: scale(1.3);
+        }
+        50% {
+            opacity: 0.5;
+            text-shadow: 0px 0px 10px #fff;
+            -webkit-transform: scale(1.1);
+        }
+        100% {
+            opacity: 1;
+            text-shadow: 0px 0px 1px #fff;
+            -webkit-transform: scale(1);
+        }
+    }
+    @-webkit-keyframes fadeInBack {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(0);
+        }
+        50% {
+            opacity: 0.4;
+            -webkit-transform: scale(2);
+        }
+        100% {
+            opacity: 0.2;
+            -webkit-transform: scale(5);
+        }
+    }
+    @-webkit-keyframes fadeInRotate {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(0) rotate(360deg);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1) rotate(0deg);
+        }
+    }
+    /**/
+
+    @-moz-keyframes blurFadeInOut {
+        0% {
+            opacity: 0;
+            text-shadow: 0px 0px 40px #fff;
+            -moz-transform: scale(1.3);
+        }
+        20%, 75% {
+            opacity: 1;
+            text-shadow: 0px 0px 1px #fff;
+            -moz-transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            text-shadow: 0px 0px 50px #fff;
+            -moz-transform: scale(0);
+        }
+    }
+    @-moz-keyframes blurFadeIn {
+        0% {
+            opacity: 0;
+            text-shadow: 0px 0px 40px #fff;
+            -moz-transform: scale(1.3);
+        }
+        100% {
+            opacity: 1;
+            text-shadow: 0px 0px 1px #fff;
+            -moz-transform: scale(1);
+        }
+    }
+    @-moz-keyframes fadeInBack {
+        0% {
+            opacity: 0;
+            -moz-transform: scale(0);
+        }
+        50% {
+            opacity: 0.4;
+            -moz-transform: scale(2);
+        }
+        100% {
+            opacity: 0.2;
+            -moz-transform: scale(5);
+        }
+    }
+    @-moz-keyframes fadeInRotate {
+        0% {
+            opacity: 0;
+            -moz-transform: scale(0) rotate(360deg);
+        }
+        100% {
+            opacity: 1;
+            -moz-transform: scale(1) rotate(0deg);
+        }
+    }
+    /**/
+
+    @keyframes blurFadeInOut {
+        0% {
+            opacity: 0;
+            text-shadow: 0px 0px 40px #fff;
+            transform: scale(1.3);
+        }
+        20%, 75% {
+            opacity: 1;
+            text-shadow: 0px 0px 1px #fff;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            text-shadow: 0px 0px 50px #fff;
+            transform: scale(0);
+        }
+    }
+    @keyframes blurFadeIn {
+        0% {
+            opacity: 0;
+            text-shadow: 0px 0px 40px #fff;
+            transform: scale(1.3);
+        }
+        50% {
+            opacity: 0.5;
+            text-shadow: 0px 0px 10px #fff;
+            transform: scale(1.1);
+        }
+        100% {
+            opacity: 1;
+            text-shadow: 0px 0px 1px #fff;
+            transform: scale(1);
+        }
+    }
+    @keyframes fadeInBack {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+        50% {
+            opacity: 0.4;
+            transform: scale(2);
+        }
+        100% {
+            opacity: 0.2;
+            transform: scale(5);
+        }
+    }
+    @keyframes fadeInBtn {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    /* Success Page Action END */
+
+
+    .mdl-card {
+        width: 40vw;
+        min-height: 0;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        padding-top: 5vh;
+      }
+      
+      .mdl-card__supporting-text {
+        width: 100%;
+        padding: 0;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step {
+        width: 25%;
+        /* 100 / no_of_steps */
+      }
+      
+      
+      /* Begin actual mdl-stepper css styles */
+      
+      .mdl-stepper-horizontal-alternative {
+        display: table;
+        width: 100%;
+        margin: 0 auto;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step {
+        display: table-cell;
+        position: relative;
+        padding: 24px;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step:hover,
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step:active {
+        background-color: rgba(0, 0, 0, .06);
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step:active {
+        border-radius: 15% / 75%;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step:first-child:active {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step:last-child:active {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step:hover .mdl-stepper-circle {
+        background-color: #757575;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step:first-child .mdl-stepper-bar-left,
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step:last-child .mdl-stepper-bar-right {
+        display: none;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-circle {
+        width: 24px;
+        height: 24px;
+        margin: 0 auto;
+        background-color: #9E9E9E;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 2em;
+        font-size: 12px;
+        color: white;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-circle {
+        background-color: rgb(33, 150, 243);
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step.step-done .mdl-stepper-circle:before {
+        content: "\2714";
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step.step-done .mdl-stepper-circle *,
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step.editable-step .mdl-stepper-circle * {
+        display: none;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step.editable-step .mdl-stepper-circle {
+        -moz-transform: scaleX(-1);
+        /* Gecko */
+        -o-transform: scaleX(-1);
+        /* Opera */
+        -webkit-transform: scaleX(-1);
+        /* Webkit */
+        transform: scaleX(-1);
+        /* Standard */
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step.editable-step .mdl-stepper-circle:before {
+        content: "\270E";
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-title {
+        margin-top: 16px;
+        font-size: 14px;
+        font-weight: normal;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-title,
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-optional {
+        text-align: center;
+        color: white;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-title {
+        font-weight: 500;
+        color: white;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step.step-done .mdl-stepper-title,
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step.editable-step .mdl-stepper-title {
+        font-weight: 300;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-optional {
+        font-size: 12px;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-optional {
+        color: white;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-left,
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-right {
+        position: absolute;
+        top: 36px;
+        height: 1px;
+        border-top: 1px solid #BDBDBD;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-right {
+        right: 0;
+        left: 50%;
+        margin-left: 20px;
+      }
+      
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-left {
+        left: 0;
+        right: 50%;
+        margin-right: 20px;
+      }
+
+      .ViewCompleteTitle {
+        color: #FDD301;
+        display: inline;
+    }
+
+    .ViewCompleteContent {
+        position: relative;
+        z-index: 1;
+    }
+
+    .ViewCompleteLayerI {
+        position: absolute;
+        left: 7%;
+        padding: 20% 20% 20% 20%;
+    }
+
+    .ViewCompleteLayerII {
+        position: absolute;
+        right: 7%;
+        padding: 20% 20% 20% 20%;
+    }
+
+    .ViewCompleteLayerIII {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 23% 50% 23% 50%;
+    }
+
+    .ViewCompleteLayerIIII {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 23% 50% 23% 50%;
+        width: 100%;
+    }
+
+    .ViewCompleteLocation {
+        border: 0 solid;
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+        outline: 1px solid;
+        outline-color: rgba(255, 255, 255, .5);
+        outline-offset: 0px;
+        text-shadow: none;
+        transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+        box-shadow: 5px 5px 5px 5px;
+   }
+
+   .ViewCompleteLocation:hover {
+        border: 1px solid;
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+        outline-color: rgba(255, 255, 255, 0);
+        outline-offset: 15px;
+        text-shadow: 3px 3px 2px #b9babb;
+   }
+
+   .ViewCompleteMainButton {
+       position: absolute;
+       z-index: 1;
+       padding: 0;
+       bottom: 30px;
+       right: 7%;
+   }
+   
+   .ViewCompleteMainButtonDetail {
+       color: white;
+       padding: 15px 50px 15px 50px;
+       font-size: 25px;
+       text-decoration: none;
+   }
+
+   .ScoreLoader {
+        position: absolute;
+        z-index: 999;
+        overflow: visible;
+        top: 50%;
+        left: 13%;
+   }
+
+   .ScoreLoader:not(:required) {
+        font: 0/0 a;
+        color: transparent;
+        text-shadow: none;
+        background-color: transparent;
+        border: 0;
+   }
+
+   .ScoreLoader:not(:required):after {
+        content: '';
+        display: block;
+        font-size: 20px;
+        width: 1em;
+        height: 1em;
+        margin-top: -0.5em;
+        -webkit-animation: spinner 1500ms infinite linear;
+        -moz-animation: spinner 1500ms infinite linear;
+        -ms-animation: spinner 1500ms infinite linear;
+        -o-animation: spinner 1500ms infinite linear;
+        animation: spinner 1500ms infinite linear;
+        border-radius: 0.5em;
+        -webkit-box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.5) -1.5em 0 0 0, rgba(255, 255, 255, 0.5) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+        box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+   }
+
+   @-webkit-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-moz-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-o-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  .ScoreValue {
+      position: absolute;
+      color: white;
+      font-size: 35px;
+      top: 30%;
+      left: 35%;
+      -webkit-animation: ScoreMove 500ms linear;
+  }
+
+  @keyframes ScoreMove {
+      0% {
+          left: 0;
+      }
+      100% {
+          left: 35%;
+      }
+  }
+
+  .ScoreDetail {
+      position: absolute;
+      padding: 10% 50% 10% 50%;
+      top: 0;
+      left: 0;
+      background-color: #999;
+  }
+
+  .ModelNameLayer {
+      position: absolute;
+      padding: 10% 50% 10% 50%;
+      color: white;
+      left: 0;
+      top: 20%;
+  }
+
+  .ModelName {
+      position: absolute;
+      left: 20%;
+      top: 35%;
+      font-size: 30px;
+  }
+
+  .CategoryNameLayer {
+      position: absolute;
+      color: white;
+      padding: 10% 50% 10% 50%;
+      top: 40%;
+      left: 0;
+  }
+
+  .CategoryName {
+      position: absolute;
+      left: 20%;
+      top: 35%;
+      font-size: 30px;
+  }
+
+  .FeatureCountLayer {
+        position: absolute;
+        color: white;
+        padding: 10% 50% 10% 50%;
+        top: 60%;
+        left: 0;
+  }
+
+  .FeatureCount {
+        position: absolute;
+        left: 20%;
+        top: 35%;
+        font-size: 30px;
+  }
+
+  .LabelCountLayer {
+    position: absolute;
+    color: white;
+    padding: 10% 50% 10% 50%;
+    top: 80%;
+    left: 0;
+  }
+
+  .LabelCount {
+    position: absolute;
+    left: 20%;
+    top: 35%;
+    font-size: 30px;
+  }
+
+  .check{
+    position: absolute;
+    display: inline;
+    overflow:hidden;
+    opacity:0;
+    animation:show 1.5s ease-out infinite alternate;
+    -webkit-animation:show 1.5s ease-out infinite alternate;
+    font-size:25px;
+    font-style:italic;
+    color:white;
+    text-align:left;
+    top: 38%;
+    left: 13%;
+  }
+  
+  @keyframes show{
+      0%{
+        width:0;
+        opacity:0;
+      }
+      100%{
+        width:25px;
+        opacity:1;
+      }
+  }
+  
+  @-webkit-keyframes show{
+      0%{
+        width:0;
+        opacity:0;
+      }
+      100%{
+        width:25px;
+        opacity:1;
+      }
+  }
+  
+  .FileNameLayer {
+      position: absolute;
+      padding: 11% 50% 11% 50%;
+      top: 0;
+      left: 0;
+  }
+
+  .FileName {
+      position: absolute;
+      color: white;
+      top: 35%;
+      left: 20%;
+      font-size: 30px;
+  }
+
+  .FileSizeLayer {
+    position: absolute;
+    padding: 11% 50% 11% 50%;
+    bottom: 0;
+    left: 0;
+  }
+
+  .FileSize {
+    position: absolute;
+    color: white;
+    bottom: 35%;
+    left: 20%;
+    font-size: 30px;
+  }
+
+  .SaveSelect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #999;
+      padding: 5% 50% 5% 50%;
+      color: white;
+      font-size: 20px;
+  }
+
+  .SaveSelectDetail {
+      position: absolute;
+      left: 5%;
+      top: 30%;
+  }
+
+  .BoardSaveTitleLayer {
+      position: absolute;
+      padding: 6% 50% 6% 50%;
+      left: 0;
+      top: 30%;
+  }
+
+  .PrivateValueLayer {
+    position: absolute;
+    padding: 6% 50% 6% 50%;
+    left: 0;
+    bottom: 10%;
+  }
+
+  .container {
+	height: 64px;
+	left: 50%;
+	margin: -32px 0 0 -80px;
+	position: absolute;
+	top: 50%;
+	width: 160px;
+}
+
+.switch {
+	background: #fff;
+	border-radius: 32px;
+	display: block;
+	height: 64px;
+	position: relative;
+	width: 160px;
+}
+
+.switch label {
+	color: #fff;
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 64px;
+	text-transform: uppercase;
+	-webkit-transition: color .2s ease;
+	-moz-transition: color .2s ease;
+	-ms-transition: color .2s ease;
+	-o-transition: color .2s ease;
+	transition: color .2s ease;
+	width: 100px;
+}
+
+.switch label:nth-of-type(1) {
+	left: -75%;
+	position: absolute;
+	text-align: right;
+}
+
+.switch label:nth-of-type(2) {
+	position: absolute;
+  right: -75%;
+	text-align: left;
+}
+
+.switch input {
+	height: 64px;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 160px;
+	z-index: 2;
+}
+
+.switch input:checked~label:nth-of-type(1) { color: #fff; }
+.switch input:checked~label:nth-of-type(2) { color: #808080; }
+
+.switch input~:checked~label:nth-of-type(1) { color: #808080; }
+.switch input~:checked~label:nth-of-type(2) { color: #fff; }
+
+.switch input:checked~.toggle {
+	left: 4px;
+}
+
+.switch input~:checked~.toggle {
+	left: 100px;
+}
+
+.switch input:checked {
+	z-index: 0;
+}
+
+.toggle {
+	background: #4a4a4a;
+	border-radius: 50%;
+	height: 56px;
+	left: 0;
+	position: absolute;
+	top: 4px;
+	-webkit-transition: left .2s ease;
+	-moz-transition: left .2s ease;
+	-ms-transition: left .2s ease;
+	-o-transition: left .2s ease;
+	transition: left .2s ease;
+	width: 56px;
+	z-index: 1;
+}
+
+.BoardSaveTitle {
+    position: absolute;
+    width: 400px;
+    padding: .8em .5em;
+    border: 1px solid #999;
+    border-radius: 0px;
+    background-color: #2F2D32;
+    color: white;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0 0 0 50px;
+    top: 15%;
+    left: 0;
+}
+
+.BoardSaveTitle:hover {
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388;
+}
+
+.CheckDataButton {
+    color: white;
+    padding: 15px 100px 15px 100px;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.CheckDataButtonLayer {
+    position: absolute;
+    z-index: 1;
+    padding: 0;
+    bottom: 10%;
+    right: 7%;
+}
+
+#center {
+    width: 600px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    margin-left: -300px;
+    margin-top: -50px;
+    background: rgba(0,0,0,1);
+   border: 2px solid rgba(255,255,255,1);
+   border-radius: 5px;
+   box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.2);
+ }
+ 
+ #main {
+   width: 200px;
+    height: 36px;
+   background: #5e6bb6;
+   float: left;
+   animation: stretch 5s infinite linear;
+ }
+ 
+ @keyframes stretch {
+     0% {width: 200px;}
+   25% {width: 280px;}
+   50% {width: 360px;}
+   75% {width: 240px;}
+     100% {width: 200px;}
+ }
+  
+  .LabelStartLayer {
+      position: relative;
+      z-index: 1;
+      padding-top: 20%;
+  }
+
+  .LabelStartText {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      text-align: center;
+      padding-top: 0;
+  }
+
+  .LabelStartTextDetail {
+      font-size: 35px;
+  }
+
+  .LabelStartTextTime {
+      font-size: 25px;
+  }
+
+  /*
+   * 데이터 검증 결과 컴포넌트 (AuthResult.js)
+   */
+.modelContent {
+    position: relative;
+    z-index: 1;
+    height: 85vh;
+    margin-top: 4vh;
+}
+
+.modelInfo {
+    width: 40vw;
+    height: 75vh;
+    text-align: center;
+    float: left;
+    margin-left: 5vw;
+}
+
+.infoName {
+    height: 15%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #FDD301;
+    padding-top: 3.5%;
+}
+
+.infoContent {
+    height: 85%;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.infoTB {
+    width: 100%;
+}
+
+.infoTB th {
+    height: 60px;
+    font-size: 20px;
+    font-weight: normal;
+    background-color: #F0F4C3;
+}
+
+.infoTB td {
+    height: 60px;
+    color: black;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+.infoTB tr:nth-child(odd) {
+    background-color: #BDBDBD;
+}
+
+.infoTB tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+.arrow {
+    float: left;
+    width: 9vw;
+    height: 75vh;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    padding-top: 16%;
+}
+
+.modelResultContent {
+    width: 40vw;
+    height: 75vh;
+    float: left;
+}
+
+.modelResult {
+    width: 100%;
+    height: 25%;
+    text-align: center;
+    color: white;
+}
+
+.modelScore{
+    font-size: 90px;
+    font-weight: bold;
+    color: rgb(5, 238, 25);
+}
+
+.modelPredict {
+    width: 100%;
+    height: 55%;
+    text-align: center;
+    background-color: white;
+    margin-top: 5%;
+}
+
+.modelPredictContent {
+    height: 85%;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.modelPredictName {
+    height: 20%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #FDD301;
+    padding-top: 2%;
+}
+
+.predictTB {
+    width: 100%;
+}
+
+.predictTB th {
+    height: 40px;
+    font-size: 20px;
+    font-weight: normal;
+    background-color: #F0F4C3;
+}
+
+.predictTB td {
+    height: 40px;
+    color: black;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+.predictTB tr:nth-child(odd) {
+    background-color: #BDBDBD;
+}
+
+.predictTB tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+.goHome {
+    width: 100%;
+    height: 10%;
+    margin-top: 7%;
+}
+
+.goHomeButton {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 2% 20% 2% 20%;
+    margin-left: 20%;
+}
+
+/*
+ * Home 화면의 구매 탭
+ */
+.goButton {
+    display: flex;
+    width: 16vw;
+    height: 7vh;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    border: 2px solid black;
+    background-color: #FDD301;
+    justify-content: center;
+    align-items: center;
+}
+
+.goButton:hover {
+    cursor: pointer;
+    background-color: khaki;
+}
+
+/*
+ * 전처리 코드 화면(PreTreatment.js)
+ */
+
+.warningTextFrame {
+    position: relative;
+    z-index: 1;
+    display: table;
+    width: 90vw;
+    height: 4vh;
+    color: #F0F4C3;
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.warningText1 {
+    display: table-cell;
+    width: 50%;
+    height: 100%;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+.waringTextMiddle {
+    display: table-cell;
+    width: 3%;
+    height: 100%;
+}
+
+.warningText2 {
+    display: table-cell;
+    width: 47%;
+    height: 100%;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+.PreProcessFrame {
+    position: relative;
+    z-index: 1;
+    width: 90vw;
+    height: 75vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Editor {
+    width: 50%;
+    height: 100%;
+    color: white;
+    font-size: 20px;
+    margin-right: 3%;
+    border: 2px solid white;
+    background-color: transparent;
+}
+
+.CodeMirror {
+    height: 100% !important;
+}
+
+.PreProcessSub {
+    width: 47%;
+    height: 100%;
+}
+
+.PreProcessAside {
+    width: 100%;
+    height: 37%;
+    margin-bottom: 3%;
+}
+
+.PreProcessFileZone {
+    display: table;
+    width: 70%;
+    height: 100%;
+    margin-right: 3%;
+}
+
+.PreProcessButtonZone {
+    width: 27%;
+    height: 100%;
+}
+
+.mgbt-12p {
+    margin-bottom: 12%;
+}
+
+.PreProcessButton {
+    width: 100%;
+    
+}
+
+.PreProcessNextButton {
+    display: flex;
+    height: 45%;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    color: white;
+    font-size: 27px;
+
+}
+
+.PreProcessOutput {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 60%;
+    
+}
+
+.OutputTitle {
+    display: flex;
+    width: 100%;
+    height: 15%;
+    border: 2px solid white;
+    border-bottom: none;
+    color: white;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.OutputContent {
+    width: 100%;
+    height: 85%;
+    border: 2px solid white;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    overflow: auto;
+}
+
+.PreProcessDropZoneDefaultText {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.PreProcessDropZoneUploadText {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+}
+
+.PreProcessDropZoneUploadText:hover {
+    cursor: pointer;
+}
+
+/*
+ * 라벨링 완료 화면(LabelingComplete.js)
+ */
+.labelingInfoWarningFrame {
+    position: relative;
+    z-index: 1;
+    width: 90vw;
+    height: 5vh;
+    margin: auto;
+}
+
+.labelingInfoWarningText {
+    display: flex;
+    align-items: center;
+    width: 47%;
+    height: 100%;
+    color: bisque;
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+.labelingCompleteFrame {
+    position: relative;
+    z-index: 1;
+    width: 90vw;
+    height: 75vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modelListFrame {
+    width: 50%;
+    height: 100%;
+    margin-right: 3%;
+}
+
+.modelListTitle {
+    display: flex;
+    width: 100%;
+    height: 15%;
+    justify-content: center;
+    align-items: center;
+    background-color: #FDD301;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.modelListTable {
+    width: 100%;
+    height: 85%;
+    color: black;
+    font-size: 20px;
+    overflow-y: auto;
+    background-color: white;
+}
+
+.modelList {
+    width: 100%;
+    height: 85%;
+}
+
+.modelList thead th {
+    height: 60px;
+    background-color: cornsilk;
+}
+
+.modelList tbody td {
+    height: 100px;
+    text-align: center;
+}
+
+.modelList tbody tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.modelList tbody tr:nth-child(even) {
+    background-color: #BDBDBD;
+}
+
+.labelingInfoFrame {
+    width: 47%;
+    height: 100%;
+}
+
+.labelingInfo {
+    width: 100%;
+    height: 50%;
+    margin-bottom: 3%;
+}
+
+.labelingInfoTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    background-color: #FDD301;
+}
+
+.labelingInfoContent {
+    width: 100%;
+    height: 80%;
+    font-size: 18px;
+    color: black;
+    background-color: white;
+    overflow-y: auto;
+}
+
+.labelingInfoTable {
+    width: 100%;
+    height: 80%;
+    text-align: center;
+}
+
+.labelingInfoTable thead th {
+    height: 50px;
+    background-color: cornsilk;
+}
+
+.labelingInfoTable tbody td {
+    height: 40px;
+}
+
+.labelingInfoTable tbody tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.labelingInfoTable tbody tr:nth-child(even) {
+    background-color: #BDBDBD;
+}
+
+.labelingInfoPreview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30%;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 3%;
+}
+
+.labelingInfoButtonFrame {
+    width: 100%;
+    height: 14%;
+}
+
+.labelingInfoButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46%;
+    height: 100%;
+    color: white;
+    font-size: 20px;
+}
+
+/*
+ * 라벨링 등록 화면 (LabelingRegist.js)
+ */
+.labelingRegistFrame {
+    position: relative;
+    z-index: 1;
+    width: 90vw;
+    height: 70vh;
+    margin-top: 3vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2vh;
+}
+
+.labelingRegistField {
+    width: 30%;
+    height: 100%;
+    padding-right: 30px;
+}
+
+.labelingRegistTextField {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    color: white;
+    font-size: 25px;
+    margin-top: 30px;
+}
+
+.labelingRegistData {
+    width: 70%;
+    height: 100%;
+    padding-left: 20px;
+}
+
+.labelingRegistTitle {
+    width: 600px;
+    height: 10%;
+    margin-top: 30px;
+}
+
+.labelingRegistTitle input {
+    width: 600px;
+    height: 100%;
+    border: 1px solid white;
+    padding-left: 10px;
+    background-color: #2F2D32;
+    font-size: 18px;
+    color: white;
+}
+
+.labelingRegistCategory {
+    width: 600px;
+    height: 10%;
+    margin-top: 30px;
+}
+
+.labelingRegistCategory select {
+    width: 200px;
+    height: 100%;
+    border: 1px solid white;
+    padding-left: 10px;
+    background-color: #2F2D32;
+    font-size: 18px;
+    color: white;
+    appearance: none;
+}
+
+.labelingRegistOpen {
+    display: flex;
+    align-items: center;
+    width: 600px;
+    height: 10%;
+    margin-top: 30px;
+    color: white;
+    font-size: 20px;
+}
+
+.labelingRegistOpen label {
+    margin-left: 15px;
+}
+
+.labelingRegistExplain {
+    width: 570px;
+    height: 40%;
+    margin-top: 30px;
+}
+
+.labelingRegistExplain textarea {
+    width: 570px;
+    height: 100%;
+    border: 1px solid white;
+    background-color: #2F2D32;
+    font-size: 15px;
+    padding: 15px;
+    color: white;
+}
+
+.labelingRegistButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 15vw;
+    height: 8vh;
+    font-size: 20px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+ * AI 모델링 결과 화면(AIComplete.js)
+ */
+.AICompleteTextFrame {
+    position: relative;
+    z-index: 1;
+    width: 80vw;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: bisque;
+    padding-left: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.AICompleteFrame {
+    position: relative;
+    z-index: 1;
+    width: 80vw;
+    height: 70vh;
+    border: 1px solid white;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.AICompleteContentLeft {
+    text-align: right;
+    width: 30%;
+    height: 100%;
+    color: white;
+    font-size: 25px;
+    margin-right: 3%;
+}
+
+.AICompleteContentLeftTitle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 12%;
+    margin-bottom: 20px;
+}
+
+.AICompleteContentLeftCategory {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 12%;
+    margin-bottom: 20px;
+}
+
+.AICompleteContentLeftExplain {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 30%;
+    margin-bottom: 20px;
+}
+
+.AICompleteContentLeftFile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 35%;
+}
+
+.AICompleteContentRight {
+    width: 67%;
+    height: 100%;
+}
+
+.AICompleteContentRightTitle {
+    width: 600px;
+    height: 12%;
+    margin-bottom: 20px;
+}
+
+.AICompleteContentRightTitle input {
+    width: 600px;
+    height: 100%;
+    border: 1px solid white;
+    padding-left: 10px;
+    font-size: 20px;
+    color: white;
+    background-color: #2F2D32;
+}
+
+.AICompleteContentRightCategory {
+    width: 600px;
+    height: 12%;
+    margin-bottom: 20px;
+}
+
+.AICompleteContentRightCategory select {
+    width: 200px;
+    height: 100%;
+    border: 1px solid white;
+    padding-left: 10px;
+    font-size: 20px;
+    color: white;
+    background-color: #2F2D32;
+    appearance: none;
+}
+
+.AICompleteContentRightExplain {
+    width: 600px;
+    height: 30%;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    color: white;
+    border: 1px solid white;
+    padding: 10px;
+}
+
+.AICompleteContentRightExplain textarea {
+    width: 580px;
+    height: 90%;
+    border: 1px solid white;
+    font-size: 15px;
+    color: white;
+    background-color: #2F2D32;
+    padding: 10px;
+}
+
+.AICompleteContentRightFile {
+    width: 600px;
+    height: 35%;
+    border: 1px solid white;
+    font-size: 15px;
+    color: white;
+    background-color: #2F2D32;
+    padding: 10px;
+    overflow: auto;
+}
+
+.AICompleteRegistFrame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 80vw;
+    height: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.AICompleteRegistButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 100%;
+    color: white;
+    font-size: 18px;
+}

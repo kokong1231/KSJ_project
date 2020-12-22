@@ -1,0 +1,7 @@
+[1]CV_Stacking
+특징 -> short_url, favicon, ssl, url_rank, activeDuration, domain_name_len
+정확도 -> 최대 94.28%
+
+[2]CV_Stacking
+특징 -> short_url, state_code, url_length, meta_data, dash_count, activeDuration
+정확도 -> 최대 94.48%

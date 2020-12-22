@@ -1,0 +1,5 @@
+url,activeDuration,href_count,url_split_count,domain_name_count,url_rank,email_count,status_count,dash_count,favicon,state_code,ssl
+https://www.naver.com,1,1,0,1,0,0,1,0,1,0,0
+https://www.daum.net,1,0,0,1,0,0,0,0,0,0,0
+https://www.google.com,1,0,0,1,0,0,1,0,0,0,0
+https://www.gwangju.ac.kr,0,1,1,0,0,0,0,0,0,0,0
